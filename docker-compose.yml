@@ -1,0 +1,14 @@
+services:
+
+  mysql:
+    image: mysql
+    ports:
+      - 3307:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=paris_sportif
+    volumes:
+      - mysql:/var/lib/mysql
+
+volumes:
+  mysql:
