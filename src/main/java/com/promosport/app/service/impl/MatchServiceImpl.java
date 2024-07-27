@@ -47,14 +47,9 @@ public class MatchServiceImpl implements MatchService {
     public void mettreAJourResultatPari(Match Match) {
         List<Pari> paris = pariRepository.findByMatch(Match);
         for (Pari pari : paris) {
-            boolean estGagnant = false;
-            if (pari.getTypePari().equals("A") && Match.getResultatEquipeA().equals("victoire")) {
-                estGagnant = true;
-            } else if (pari.getTypePari().equals("B") && Match.getResultatEquipeB().equals("victoire")) {
-                estGagnant = true;
-            }
+            boolean estGagnant = pari.getTypePari().equals(Match.getResultat());
 
-            if (estGagnant) {
+	        if (estGagnant) {
                 double montantGagne = pari.getMontant() * pari.getCote();
                 pari.setResultat("gagné");
                 pari.setMontantGagne(montantGagne);

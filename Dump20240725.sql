@@ -237,7 +237,7 @@ DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE `utilisateur` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `email` varchar(255) DEFAULT NULL,
-  `login` varchar(255) DEFAULT NULL,
+--   `login` varchar(255) DEFAULT NULL,
   `mot_de_passe` varchar(255) DEFAULT NULL,
   `role` varchar(255) DEFAULT NULL,
   `solde` double NOT NULL,

@@ -5,15 +5,18 @@ import com.promosport.app.service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/api/auth")
+@Controller
+@RequestMapping("")
 public class AuthentificationController {
     @Autowired
     private UtilisateurService utilisateurService;
@@ -24,12 +27,34 @@ public class AuthentificationController {
         return ResponseEntity.ok(nouvelUtilisateur);
     }
 
-    @PostMapping("/connexion")
-    public ResponseEntity<String> connecterUtilisateur(@RequestBody Utilisateur utilisateur) {
-        Optional<Utilisateur> utilisateurOpt = utilisateurService.trouverParLogin(utilisateur.getLogin());
-        if (utilisateurOpt.isPresent() && utilisateurOpt.get().getMotDePasse().equals(utilisateur.getMotDePasse())) {
-            return ResponseEntity.ok("Connexion réussie");
+    @GetMapping("/login")
+    public String loginPage(Model model) {
+        Utilisateur user = new Utilisateur();
+        model.addAttribute("user", user);
+        return "login";
+    }
+/*
+    @PostMapping("/perform_login")
+    public String loginAction(Utilisateur user, RedirectAttributes redirectAttributes) {
+        try {
+            redirectAttributes.addFlashAttribute("message", "");
+        } catch (Exception e) {
+            redirectAttributes.addAttribute("message", e.getMessage());
         }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Échec de la connexion");
+
+        return "redirect:/dashboard";
+    }*/
+
+
+    @GetMapping("/inscription")
+    public String inscriptionPage(Model model) {
+        Utilisateur user = new Utilisateur();
+        model.addAttribute("user", user);
+        return "register";
+    }
+
+    @GetMapping("/dashboard")
+    public String dashboardPage(Model model) {
+        return "dashboard";
     }
 }

@@ -5,6 +5,8 @@ import com.promosport.app.model.Utilisateur;
 import com.promosport.app.repository.UtilisateurRepository;
 import com.promosport.app.service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 
@@ -17,11 +19,11 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     public Utilisateur inscrireUtilisateur(Utilisateur utilisateur) {
         return utilisateurRepository.save(utilisateur);
     }
-
-    @Override
-    public Optional<Utilisateur> trouverParLogin(String login) {
-        return utilisateurRepository.findByLogin(login);
-    }
+//
+//    @Override
+//    public Optional<Utilisateur> trouverParLogin(String login) {
+//        return utilisateurRepository.findByLogin(login);
+//    }
 
     @Override
     public Optional<Utilisateur> trouverParEmail(String email) {
@@ -33,7 +35,6 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         Utilisateur utilisateur = utilisateurRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Utilisateur non trouvé pour cet id :: " + id));
 
-        utilisateur.setLogin(utilisateurDetails.getLogin());
         utilisateur.setMotDePasse(utilisateurDetails.getMotDePasse());
         utilisateur.setRole(utilisateurDetails.getRole());
         utilisateur.setEmail(utilisateurDetails.getEmail());
@@ -53,5 +54,10 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     @Override
     public Optional<Utilisateur> trouverParId(Long id) {
         return utilisateurRepository.findById(id);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return trouverParEmail(username).orElseThrow();
     }
 }

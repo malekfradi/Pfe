@@ -1,5 +1,12 @@
 package com.promosport.app.model;
 
-public enum RoleEnum {
-	ADMIN, USER
+import org.springframework.security.core.GrantedAuthority;
+
+public enum RoleEnum implements GrantedAuthority {
+	ADMIN, USER;
+
+	@Override
+	public String getAuthority() {
+		return this.name();
+	}
 }

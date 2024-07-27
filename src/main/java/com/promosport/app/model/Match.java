@@ -22,6 +22,7 @@ public class Match {
     private String equipeB;
     private LocalDateTime date;
 
+    private String resultat; // A, B, E
     private String resultatEquipeA; // Exemple : "2" (buts marqués par l'équipe A)
     private String resultatEquipeB; // Exemple : "1" (buts marqués par l'équipe B)
 
