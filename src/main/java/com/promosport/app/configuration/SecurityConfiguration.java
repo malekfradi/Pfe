@@ -37,8 +37,7 @@ public class SecurityConfiguration {
 					.requestMatchers("css/**", "js/**", "img/**", "login", "register", "/access-denied").permitAll()
 					.requestMatchers(HttpMethod.GET, "/dashboard").hasAnyAuthority(ADMIN.name())
 					.requestMatchers(HttpMethod.GET, "/home").hasAnyAuthority(USER.name())
-					.requestMatchers(HttpMethod.POST, "/user/**").permitAll()
-					.requestMatchers(HttpMethod.POST, "/user/**").permitAll()
+					.requestMatchers(HttpMethod.GET, "/results").hasAnyAuthority(USER.name())
 					.requestMatchers(HttpMethod.GET, "/api/**").permitAll()
 			)
 			.formLogin(form ->

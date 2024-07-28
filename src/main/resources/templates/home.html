@@ -22,9 +22,9 @@
 
 <body class="layout-top-nav" style="height: auto;">
 <div class="wrapper">
-    <nav th:replace="fragments/nav-user.html :: nav"></nav>
+    <nav th:replace="~{fragments/nav-user.html :: nav}"></nav>
 
-    <div class="content-wrapper" style="min-height: 832.85px;">
+    <div class="content-wrapper" >
 
         <div class="content-header">
             <div class="container">
@@ -44,7 +44,7 @@
                     <div class="col-md-12">
                         <div class="card card-widget widget-user">
                             <div class="widget-user-header bg-info">
-                                <h3 class="widget-user-username">Club Sportif Sfaxien VS Club Africain</h3>
+                                <h3 class="widget-user-username flex-fill">Club Sportif Sfaxien <span class="text-bold">(1)</span> <span class="text-bold mx-5">VS</span> Club Africain <span class="text-bold">(0)</span></h3>
                                 <h5 class="widget-user-desc">Match en cours</h5>
                             </div>
                             <div class="widget-user-image"
@@ -62,8 +62,7 @@
                             <div class="row mt-4">
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
-                                        <h5 class="description-header">Club Sportif Sfaxien <span
-                                                class="text-bold">(1)</span></h5>
+                                        <h5 class="description-header">1</h5>
                                         <button type="button" class="mt-2 btn btn-block btn-success btn-sm">15.5
                                         </button>
                                     </div>
@@ -80,7 +79,7 @@
 
                                 <div class="col-sm-4">
                                     <div class="description-block">
-                                        <h5 class="description-header">Club Africain <span class="text-bold">(0)</span>
+                                        <h5 class="description-header">2
                                         </h5>
                                         <button type="button" class="mt-2 btn btn-block btn-success btn-sm">3.5</button>
                                     </div>
@@ -94,8 +93,8 @@
                     <div class="col-md-12 mt-4">
                         <div class="card card-widget widget-user">
                             <div class="widget-user-header bg-info">
-                                <h3 class="widget-user-username">Étoile Sportive du Sahel VS Espérance Sportive de
-                                    Tunis</h3>
+                                <h3 class="widget-user-username flex-fill">Étoile Sportive du Sahel <span class="text-bold">(0)</span> <span class="text-bold mx-5">VS</span> Espérance Sportive de
+                                    Tunis <span class="text-bold">(0)</span></h3>
                                 <h5 class="widget-user-desc">Match en cours</h5>
                             </div>
                             <div class="widget-user-image"
@@ -113,8 +112,7 @@
                             <div class="row mt-4">
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
-                                        <h5 class="description-header">Étoile Sportive du Sahel (<span
-                                                class="text-bold">0</span>)</h5>
+                                        <h5 class="description-header">1</h5>
                                         <button type="button" class="mt-2 btn btn-block btn-success btn-sm">5</button>
                                     </div>
 
@@ -130,8 +128,7 @@
 
                                 <div class="col-sm-4">
                                     <div class="description-block">
-                                        <h5 class="description-header">Espérance Sportive de Tunis <span
-                                                class="text-bold">(0)</span></h5>
+                                        <h5 class="description-header">2</h5>
                                         <button type="button" class="mt-2 btn btn-block btn-success btn-sm">17.3
                                         </button>
                                     </div>
@@ -156,7 +153,7 @@
     <div class="float-right d-none d-sm-inline">
         Promosport
     </div>
-    <strong>Copyright © 2014-2021</strong> All rights reserved.
+    <strong>Copyright © 2024</strong> All rights reserved.
 </footer>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
