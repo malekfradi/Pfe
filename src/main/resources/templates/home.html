@@ -24,7 +24,7 @@
 <div class="wrapper">
     <nav th:replace="~{fragments/nav-user.html :: nav}"></nav>
 
-    <div class="content-wrapper" >
+    <div class="content-wrapper">
 
         <div class="content-header">
             <div class="container">
@@ -44,7 +44,9 @@
                     <div class="col-md-12">
                         <div class="card card-widget widget-user">
                             <div class="widget-user-header bg-info">
-                                <h3 class="widget-user-username flex-fill">Club Sportif Sfaxien <span class="text-bold">(1)</span> <span class="text-bold mx-5">VS</span> Club Africain <span class="text-bold">(0)</span></h3>
+                                <h3 class="widget-user-username flex-fill">Club Sportif Sfaxien <span class="text-bold">(1)</span>
+                                    <span class="text-bold mx-5">VS</span> Club Africain <span
+                                            class="text-bold">(0)</span></h3>
                                 <h5 class="widget-user-desc">Match en cours</h5>
                             </div>
                             <div class="widget-user-image"
@@ -93,7 +95,9 @@
                     <div class="col-md-12 mt-4">
                         <div class="card card-widget widget-user">
                             <div class="widget-user-header bg-info">
-                                <h3 class="widget-user-username flex-fill">Étoile Sportive du Sahel <span class="text-bold">(0)</span> <span class="text-bold mx-5">VS</span> Espérance Sportive de
+                                <h3 class="widget-user-username flex-fill">Étoile Sportive du Sahel <span
+                                        class="text-bold">(0)</span> <span class="text-bold mx-5">VS</span> Espérance
+                                    Sportive de
                                     Tunis <span class="text-bold">(0)</span></h3>
                                 <h5 class="widget-user-desc">Match en cours</h5>
                             </div>
@@ -129,7 +133,8 @@
                                 <div class="col-sm-4">
                                     <div class="description-block">
                                         <h5 class="description-header">2</h5>
-                                        <button type="button" class="mt-2 btn btn-block btn-success btn-sm">17.3
+                                        <button type="button" class="mt-2 btn btn-block btn-success btn-sm"
+                                                data-toggle="modal" data-target="#exampleModal">17.3
                                         </button>
                                     </div>
 
@@ -146,6 +151,33 @@
         </div>
     </div>
 
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmation de Pari
+                    (<span class="text-bold"> 2 - Espérance Sportive de Tunis </span>)
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group mb-4">
+                    <label>Montant de Pari </label>
+                    <input type="text" class="form-control" placeholder="Montant de Pari">
+                </div>
+                Merci de saisir le montant de Pari et confirmer votre choix.
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Confirmer</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 
