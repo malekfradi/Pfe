@@ -33,7 +33,7 @@ public class SecurityConfiguration {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests(configurer ->
 				configurer
-					.requestMatchers("css/**", "js/**", "login", "register", "/access-denied").permitAll()
+					.requestMatchers("css/**", "js/**", "img/**", "login", "register", "/access-denied").permitAll()
 					.requestMatchers(HttpMethod.GET, "/dashboard").hasAnyAuthority(ADMIN.name())
 					.requestMatchers(HttpMethod.POST, "/user/**").permitAll()
 					.requestMatchers(HttpMethod.POST, "/user/**").permitAll()
