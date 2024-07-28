@@ -1,7 +1,5 @@
 package com.promosport.app.controller;
 
-import com.promosport.app.model.RoleEnum;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -9,8 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
 
-	@GetMapping("/")
-	String index(Authentication authentication) {
-		return authentication.getAuthorities().contains(RoleEnum.ADMIN) ? "redirect:/dashboard" : "home";
+	@GetMapping("/home")
+	String home() {
+		return "home";
+	}
+
+	@GetMapping("/matchs")
+	String matchsIndex() {
+		return "matchs";
+	}
+
+	@GetMapping("/results")
+	String resultatsIndex() {
+		return "results";
 	}
 }
+

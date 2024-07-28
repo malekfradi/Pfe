@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static com.promosport.app.model.RoleEnum.ADMIN;
+import static com.promosport.app.model.RoleEnum.USER;
 
 
 @Configuration
@@ -35,6 +36,7 @@ public class SecurityConfiguration {
 				configurer
 					.requestMatchers("css/**", "js/**", "img/**", "login", "register", "/access-denied").permitAll()
 					.requestMatchers(HttpMethod.GET, "/dashboard").hasAnyAuthority(ADMIN.name())
+					.requestMatchers(HttpMethod.GET, "/home").hasAnyAuthority(USER.name())
 					.requestMatchers(HttpMethod.POST, "/user/**").permitAll()
 					.requestMatchers(HttpMethod.POST, "/user/**").permitAll()
 					.requestMatchers(HttpMethod.GET, "/api/**").permitAll()
@@ -48,7 +50,7 @@ public class SecurityConfiguration {
 						if (authentication.getAuthorities().contains(ADMIN))
 							response.sendRedirect("/dashboard");
 						else
-							response.sendRedirect("/");
+							response.sendRedirect("/home");
 					})
 					.permitAll()
 			)

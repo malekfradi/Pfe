@@ -27,17 +27,6 @@ public class AuthentificationController {
 	public String loginPage() {
 		return "login";
 	}
-/*
-    @PostMapping("/perform_login")
-    public String loginAction(Utilisateur user, RedirectAttributes redirectAttributes) {
-        try {
-            redirectAttributes.addFlashAttribute("message", "");
-        } catch (Exception e) {
-            redirectAttributes.addAttribute("message", e.getMessage());
-        }
-
-        return "redirect:/dashboard";
-    }*/
 
 
 	@GetMapping("/register")
