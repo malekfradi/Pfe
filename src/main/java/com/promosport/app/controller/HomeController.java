@@ -11,6 +11,6 @@ public class HomeController {
 
 	@GetMapping("/")
 	String index(Authentication authentication) {
-		return authentication.getAuthorities().contains(RoleEnum.ADMIN) ? "dashboard" : "home";
+		return authentication.getAuthorities().contains(RoleEnum.ADMIN) ? "redirect:/dashboard" : "home";
 	}
 }
